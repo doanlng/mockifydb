@@ -2,8 +2,9 @@
 // Include the database connection file
 require_once("dbConnection.php");
 
-// Fetch data in descending order (lastest entry first)
+// Fetch data in descending order (lastest entdy first)
 $result = mysqli_query($mysqli, "SELECT * FROM artist ORDER BY AID DESC");
+$result3 = mysqli_query($mysqli, "SELECT * FROM podcast ORDER BY PID ASC");
 ?>
 
 <html>
@@ -14,32 +15,23 @@ $result = mysqli_query($mysqli, "SELECT * FROM artist ORDER BY AID DESC");
 <body>
 	<h2>Homepage</h2>
 	<p>
-		<a href="add.php">Add New Data</a>
-		<a href="addSong.php">Add Song Data</a>
-	</p>
-	<table width='80%' border=0>
-		<tr bgcolor='#DDDDDD'>
-			<td><strong>AID</strong></td>
-			<td><strong>Verified</strong></td>
-			<td><strong>about</strong></td>
-			<td><strong>Next Tour Date</strong></td>
-			<td><strong>Next Tour Location</strong></td>
-			<td><strong>Name</strong></td>
+		<tr>
+			<td><a href="Artist.php">Artists</a></td>
+			<td><a href="Song.php">Songs</a></td>
+			<td><a href="Podcasts.php">Podcasts</a></td>
 		</tr>
-		<?php
-		// Fetch the next row of a result set as an associative array
-		while ($res = mysqli_fetch_assoc($result)) {
-			echo "<tr>";
-			echo "<td>".$res['AID']."</td>";
-			echo "<td>".$res['VERIFIED']."</td>";
-			echo "<td>".$res['ABOUT']."</td>";	
-			echo "<td>".$res['NEXT_TOUR_DATE']."</td>";	
-			echo "<td>".$res['NEXT_TOUR_LOCATION']."</td>";	
-			echo "<td>".$res['Name']."</td>";	
-			echo "<td><a href=\"edit.php?id=$res[AID]\">Edit</a> | 
-			<a href=\"delete.php?aid=$res[AID]\" onClick=\"return confirm('Are you sure you want to delete?')\">Delete</a></td>";
-		}
-		?>
-	</table>
+	</p>
+	<!-- Courtesy of https://www.w3schools.com/howto/howto_css_login_form.asp -->
+	<h2>
+		<form method="POST" action="login.php">
+			<label for="uname"><b>Username</b></label>
+			<input type="text" placeholder="Enter Username" name="uname" required>
+
+			<label for="psw"><b>Password</b></label>
+			<input type="password" placeholder="Enter Password" name="psw" required>
+
+			<button type="submit">Login</button>
+		</form>
+	</h2>
 </body>
 </html>
