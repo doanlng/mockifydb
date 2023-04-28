@@ -78,7 +78,7 @@ button:hover {
 }
 
 .signup {
-    height: 500px;
+    height: 460px;
     background: #eee;
     border-radius: 60% / 10%;
     transform: translateY(-160px);
@@ -91,7 +91,7 @@ button:hover {
 }
 
 #chk:checked~.signup {
-    transform: translateY(-500px);
+    transform: translateY(-520px);
 }
 
 #chk:checked~.signup label {
