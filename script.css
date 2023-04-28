@@ -248,7 +248,7 @@ h1 {
     width: 6vw;
 }
 
-.container {
+.buttonContainer {
     background-color: rgba(1000, 1000, 1000, 0.08);
     width: max-content;
     padding: 1rem 1vw;
@@ -256,7 +256,7 @@ h1 {
     border-radius: 5px;
 }
 
-.container:hover {
+.buttonContainer:hover {
     background-color: rgba(1000, 1000, 1000, 0.15);
 }
 

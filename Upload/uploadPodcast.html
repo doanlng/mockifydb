@@ -1,13 +1,32 @@
-<h1 class="green">Upload New Podcast</h1>
-<div class="container-fluid" id="uploadSong">
-    <div class="container">
-        <form action="index.html" method="POST">
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#addPodcastForm').submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: 'addActionPodcast.php',
+                data: $(this).serialize(),
+                success: function(response)
+                {
+                    console.log(response);
+                    location.href = "index.html";
+                },
+                error: function() {
+                    alert('There was some error performing the AJAX call!');
+                }
+        });
+        });
+    });
+</script>
 
+<h1 class="green">Upload New Podcast</h1>
+<div class="container-fluid" id="uploadPodcast">
+    <div class="container buttonContainer">
+        <form method="post" id="addPodcastForm">
             <div class="row">
                 <p id="podcast_length" class="green col">Podcast Length:</p>
-                <input type="text" name="length" id="length_input" class="col">
+                <input type="time" name="length" id="length_input" class="col">
             </div>
-
             <input type="submit" value="Upload" id="podcast_upload" class="green row">
         </form>
     </div>

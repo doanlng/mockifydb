@@ -11,7 +11,7 @@ if (isset($_POST['length'])) {
 	// the input elements should have the 'required' tag
 
 	// Insert data into database
-	$result = mysqli_query($mysqli, "INSERT INTO album (`LENGTH`, `AID`) VALUES ('$length', '$aid')");
+	$result = mysqli_query($mysqli, "INSERT INTO podcast (`LENGTH`, `AID`) VALUES ('$length', '$aid')");
 	if ($result == TRUE) {
 		echo json_encode(array('success' => 1));
 	} else {

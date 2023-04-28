@@ -1,3 +1,29 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#createPlaylistForm').submit(function(e) {
+            e.preventDefault();
+            $.ajax({
+                type: "POST",
+                url: 'addActionPlayList.php',
+                data: $(this).serialize(),
+                success: function(response)
+                {
+                  console.log(response);
+                  var jsonData = JSON.parse(response);
+                  if (jsonData.success == "1") {
+                    $('#playlistModal').modal('toggle');
+					// Refresh home page to show new playlist
+
+                  }
+                },
+                error: function() {
+                    alert('There was some error performing the AJAX call!');
+                }
+            });
+        });
+    });
+</script>
+
 <!-- Playlist Modal -->
 <div class="modal fade" id="playlistModal" tabindex="-1" aria-labelledby="playlistModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -6,11 +32,16 @@
           <h1 class="modal-title fs-5 green-text" id="playlistModalLabel">Create New Playlist</h1>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <div class="modal-body text-dark">
-            <form action="createPlaylist.php">
-                <label class="green-text" for="playlistName">Playlist Name:</label><br>
-                <input type="text" id="playlistName" name="playlistName" value="New Playlist"><br>
-              </form>
+        <div class="container modal-body text-dark mb-3 mt-3">
+            <form id="createPlaylistForm">
+              <div class="row d-flex justify-content-center mb-3">
+                <label class="green-text col" for="playlistName">Playlist Name:</label><br>
+                <input type="text" id="playlistName" name="NAME" value="New Playlist" class="col" required>
+              </div>
+              <div class="row d-flex justify-content-center">
+                <input type="submit" value="Upload" class="green col-5">
+              </div>
+            </form>
         </div>
       </div>
     </div>
