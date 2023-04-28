@@ -1,0 +1,45 @@
+
+<script type="text/javascript">
+$(document).ready(function() {
+    $('#addSongForm').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: 'addSongAction.php',
+            data: $(this).serialize(),
+            success: function(response)
+            {
+                console.log(response);
+           },
+			error: function() {
+				alert('There was some error performing the AJAX call!');
+			}
+       });
+     });
+});
+</script>
+
+<h1 class="green">Upload New Song</h1>
+<div class="container-fluid" id="uploadSong">
+    <div class="container">
+        <form method="post" id="addSongForm">
+
+            <div class="row">
+                <p id="song_name" class="green col">Song Name:</p>
+                <input type="text" name="name" id="name_input" class="col" required>
+            </div>
+
+            <div class="row">
+                <p id="song_genre" class="green col">Song Genre:</p>
+                <input type="text" name="genre" id="genre_input" class="col" required>
+            </div>
+
+            <div class="row">
+                <p id="song_length" class="green col">Song Length:</p>
+                <input type="time" name="length" id="length_input" class="col" required>
+            </div>
+
+            <input type="submit" value="Upload" class="green row">
+        </form>
+    </div>
+</div>
