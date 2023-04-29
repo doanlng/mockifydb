@@ -44,8 +44,8 @@
         <span class="favourite">DELETE</span>
     </div>
     <?php
-        while($sa= mysqli_fetch_assoc($albums)){
-            $req = mysqli_query($mysqli, "SELECT * FROM artist WHERE AID = " . $s['AID']);
+        while($a= mysqli_fetch_assoc($albums)){
+            $req = mysqli_query($mysqli, "SELECT * FROM artist WHERE AID = " . $a['AID']);
             $artist = mysqli_fetch_assoc($req);
 
             echo "<div class = 'media'> ";
