@@ -51,9 +51,9 @@
             echo "<div class = 'media'> ";
 
             echo '<span id="artistPage" onclick="loadPage(this)" class="mediaName">'.$a['Name']."<br><a  id=".$a['AID'].'>'.$artist['Name'].'</a></span>'; 
-            echo '<span class="hide">'.$a['LENGTH'].'</span>';
+            echo '<span class="hide">'.$a['Length'].'</span>';
             echo '<span class="favourite"><i class="fas fa-heart"></i></span>';
-            echo '<span class="delete"><a id='.$a['TID'].'><i class="fa-solid fa-trash"></i></a></span>';
+            echo '<span class="delete"><a id='.$a['AlID'].'><i class="fa-solid fa-trash"></i></a></span>';
             
             echo "</div> ";
         }
