@@ -1,10 +1,33 @@
-<!-- <?php
-    // require_once("dbConnection.php");
-    // session_start();
-    // $songs = mysqli_query($mysqli, "SELECT * FROM song WHERE AID = " . $_SESSION['uid']);
-    // $row_cnt = mysqli_num_rows($songs);
-    // echo "<h1>My Albums</h1>";
-    // echo "<h4>Number of Albums: " . $row_cnt . "</h4>"
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.delete').on("click", function(e) {
+            e.preventDefault();
+            const alid = $(this).find('a:first').attr('id');
+            console.log(tid);
+            $.ajax({
+                type: "POST",
+                url: 'deleteAlbum.php',
+                data: {'ALID': alid},
+                success: function(response)
+                {
+                    console.log(response);
+                    location.href = "index.php";
+                },
+                error: function() {
+                    alert('There was some error performing the AJAX call!');
+                }
+            });
+        });
+    });
+</script>
+
+<?php
+    require_once("dbConnection.php");
+    session_start();
+    $albums = mysqli_query($mysqli, "SELECT * FROM album WHERE AID = " . $_SESSION['uid']);
+    $row_cnt = mysqli_num_rows($albums);
+    echo "<h1>My Albums</h1>";
+    echo "<h4>Number of Albums: " . $row_cnt . "</h4>"
 ?>
 
 <a id="uploadAlbum" onclick="loadPage(this)" class="playlist horizontal">
@@ -18,20 +41,21 @@
         <span class="mediaName">TITLE</span>
         <span class="hide"><i class="fa fa-solid fa-clock"></i></span>
         <span class="favourite">ADD</span>
+        <span class="favourite">DELETE</span>
     </div>
     <?php
-        // while($s = mysqli_fetch_assoc($songs)){
-        //     $req = mysqli_query($mysqli, "SELECT * FROM artist WHERE AID = " . $s['AID']);
-        //     $artist = mysqli_fetch_assoc($req);
+        while($sa= mysqli_fetch_assoc($albums)){
+            $req = mysqli_query($mysqli, "SELECT * FROM artist WHERE AID = " . $s['AID']);
+            $artist = mysqli_fetch_assoc($req);
 
-        //     echo "<div class = 'media'> ";
+            echo "<div class = 'media'> ";
 
+            echo '<span id="artistPage" onclick="loadPage(this)" class="mediaName">'.$a['Name']."<br><a  id=".$a['AID'].'>'.$artist['Name'].'</a></span>'; 
+            echo '<span class="hide">'.$a['LENGTH'].'</span>';
+            echo '<span class="favourite"><i class="fas fa-heart"></i></span>';
+            echo '<span class="delete"><a id='.$a['TID'].'><i class="fa-solid fa-trash"></i></a></span>';
             
-        //     echo '<span id="1" class="mediaName">'.$s['Name'].'<br>'.$artist['Name'].'</span>'; 
-        //     echo '<span class="hide">'.$s['LENGTH'].'</span>';   
-        //     echo '<span class="favourite"><i class="fas fa-heart"></i></span>';
-
-        //     echo "</div> ";
-        // }
+            echo "</div> ";
+        }
     ?>
-</div> -->
+</div>
