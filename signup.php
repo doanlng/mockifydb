@@ -27,7 +27,7 @@
                         session_start();
                         $row = mysqli_fetch_assoc($account_found);
                         $_SESSION['uid'] = $row['uid'];
-                        header("Location: index.html");
+                        header("Location: index.php");
                     }
                 }
             }

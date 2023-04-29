@@ -68,6 +68,17 @@ a {
     gap: 1rem;
 }
 
+.arrow {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem
+}
+
+.arrow:hover {
+    cursor: pointer;
+}
+
 .logo {
     width: max-content;
     font-weight: 550;
@@ -214,7 +225,7 @@ input[type=range]::-moz-range-thumb {
     font-size: x-large
 }
 
-h1 {
+h1, h4, h6 {
     margin: 1rem;
 }
 
@@ -246,6 +257,12 @@ h1 {
 .playlist>img {
     box-shadow: 1px 1px 20px black;
     width: 6vw;
+}
+
+.playlistName {
+    color: gray;
+    font-weight: bold;
+    font-size: 15px;
 }
 
 .buttonContainer {
@@ -333,7 +350,7 @@ h1 {
     font-weight: bold;
 }
 
-.song, .tableHead{
+.media, .tableHead{
     display: grid;
     padding: 0.5rem;
     margin: 0 1rem;
@@ -343,7 +360,7 @@ h1 {
     grid-template-columns: 1fr 2fr 1fr 1fr;
 }
 
-.song:hover > .songName{
+.media:hover > .mediaName{
     text-decoration: underline;
 }
 
@@ -351,12 +368,16 @@ h1 {
     text-align: center;
 }
 
-.songName{
+.delete {
+    color: red;
+}
+
+.mediaName{
     font-weight: bold;
     font-size: 0.85rem;
 }
 
-.song:hover{
+.media:hover{
     cursor: pointer;
     background-color: rgba(1000, 1000, 1000, 0.15);
 }
@@ -370,10 +391,6 @@ h1 {
     margin: 3rem 1rem 1rem 1rem;
     font-weight: bold;
     border-bottom: 1px solid grey;
-}
-
-.green{
-    color: green;
 }
 
 input {

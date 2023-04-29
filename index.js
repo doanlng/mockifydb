@@ -298,7 +298,7 @@ function loadPage(elem) {
     } else if (elemId === "search") {
         page = "search.html";
     } else if (elemId === "library") {
-        page = "library.html";
+        page = "library.php";
     } else if (elemId === "liked") {
         page = "liked.html";
     } else if (elemId === "createPlaylist") {
@@ -309,7 +309,26 @@ function loadPage(elem) {
         page = "Upload/uploadSong.html";
     } else if (elemId === "uploadPodcast") {
         page = "Upload/uploadPodcast.html";
+    } else if (elemId === "mySongs") {
+        page = "mySongs.php";
+    } else if (elemId === "myAlbums") {
+        page = "myAlbums.php";
+    } else if (elemId === "myPodcasts") {
+        page = "myPodcasts.php";
+    } else if (elemId === "artistPage") {
+        const aid = $(elem).find('a:first').attr('id');
+        page = "artistPage.php?aid=" + aid;
+    } else if (elemId === "listenerPage") {
+        const uid = $(elem).find('a:first').attr('id');
+        page = "listenerPage.php?uid=" + uid;
+    } 
+
+    if (elemId === "logo" || elemId == "home") {
+        $(".arrow").hide();
+    } else {
+        $(".arrow").show();
     }
+
     $("#content-placeholder").load(page);
 }
 

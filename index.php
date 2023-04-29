@@ -1,3 +1,11 @@
+<?php
+    require_once("dbConnection.php");
+    session_start();
+    $id = $_SESSION['uid'];
+    $account_info = mysqli_query($mysqli, "SELECT * FROM listener WHERE uid = '$id' LIMIT 1");
+    $user_data = mysqli_fetch_assoc($account_info)
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,6 +52,14 @@
                     <img class="bgHeart" src="https://img.icons8.com/ios-glyphs/16/ffffff/like--v1.png" /><a
                         id="liked" onclick="loadPage(this)">Liked Songs</a>
                 </div>
+            </div>
+            <div class="part">
+                <?php 
+                    $user_playlists = mysqli_query($mysqli, "SELECT * FROM playlist WHERE OWNING_USER = '$id' ");
+                    while($row = mysqli_fetch_assoc($user_playlists)){
+                        echo '<a class="playlistName" href=playlistView.php?playlist='.$row['PLAYLIST_ID'].'> ' . $row['NAME'] . '</a>';
+                    }
+                ?>
             </div>
         </div>
     </div>
@@ -103,11 +119,12 @@
     </div>
 
     <main>
+        <a id="home" onclick="loadPage(this)" class="arrow"> <i class="fa-solid fa-arrow-left-long fa-5x"></i> </a>
 
-    <!--Content-->
-    <div id="content-placeholder" class="content-placeholder">
+        <!--Content-->
+        <div id="content-placeholder" class="content-placeholder">
 
-    </div>
+        </div>
 
     </main>
 </body>
@@ -120,6 +137,7 @@
 <script>
     $(function(){
       $("#content-placeholder").load("home.html");
+      $(".arrow").hide();
       $("#playlist-modal").load("createPlaylist.html");
     });
 </script>

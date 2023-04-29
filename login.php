@@ -14,14 +14,14 @@
         }
         else{
             $account_found = mysqli_query($mysqli, "SELECT uid FROM accounts WHERE username='$un' and password='$pw_encrypted' LIMIT 1");
-            if(empty(mysqli_fetch_assoc($account_found))){
-                echo "Invalid Username or Password. <a href=login.html> Go Back </a>";
+            session_start();
+            $row = mysqli_fetch_assoc($account_found);
+            if (is_null($row)) {
+                echo "<font color='red'> Login went wrong.</font><br/><a href=login.html> Go Back </a>";
             }
-            else{
-                session_start();
-                $row = mysqli_fetch_assoc($account_found);
+            else {
                 $_SESSION['uid'] = $row['uid'];
-                header("Location: index.html");
+                header("Location: index.php");
             }
         }
 
