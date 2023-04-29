@@ -114,6 +114,7 @@
                 <img class="mute" src="https://img.icons8.com/ios/50/ffffff/high-volume--v1.png" />
                 <input id="volumeBar" type="range" class="vol" min="0" value="100" max="100">
             </div>
+            <a href=logout.php style="color:grey"> Logout </a>
 
         </div>
     </div>
@@ -136,7 +137,7 @@
 
 <script>
     $(function(){
-      $("#content-placeholder").load("home.html");
+      $("#content-placeholder").load("home.php");
       $(".arrow").hide();
       $("#playlist-modal").load("createPlaylist.html");
     });

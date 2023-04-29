@@ -417,3 +417,81 @@ input {
         grid-template-columns: auto auto auto;
     }
 }
+.songName {
+    font-weight: bold;
+    font-size: 0.85rem;
+}
+
+.song:hover {
+    cursor: pointer;
+    background-color: rgba(1000, 1000, 1000, 0.15);
+}
+
+.cover {
+    width: 3vw;
+    justify-self: center;
+}
+
+.tableHead {
+    margin: 3rem 1rem 1rem 1rem;
+    font-weight: bold;
+    border-bottom: 1px solid grey;
+}
+
+.green {
+    color: green;
+}
+
+input {
+    color: black !important;
+}
+
+.floating-stack {
+    background: rgb(1, 20, 1);
+    color: #fff;
+    padding-left: 5px;
+    height: 300px;
+    width: 320px;
+    border-radius: 1rem;
+    overflow-y: auto;
+    text-align: center;
+    padding-top: 5px;
+}
+
+.floating-stack>dl {
+    margin: 0 0 1rem;
+    display: grid;
+    grid-template-columns: 2.5rem 1fr;
+    align-items: center;
+}
+
+.floating-stack dd {
+    grid-column: 2;
+    margin: 0;
+    padding: 0.75rem;
+}
+
+.sticky-button {
+    position: fixed;
+    top: 10%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: darkgreen;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.list {
+    position: fixed;
+    top: 15%;
+    right: 0%;
+    display: none;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.f {
+    text-align: left;
+    padding-left: 2.5px;
+}
