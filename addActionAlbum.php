@@ -1,6 +1,6 @@
 <?php
 // Include the database connection file
-require_once("C:/xampp/htdocs/mockifydb/dbConnection.php");
+require_once("dbConnection.php");
 
 if (isset($_POST['length'])) {
 	// Escape special characters in string for use in SQL statement	

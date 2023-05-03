@@ -17,6 +17,7 @@ table{
         <td>Playlist ID</td>
         <td>Name</td>
         <td>Owning User ID</td>
+        <td><a href>Delete</a></td>
     </tr>
 <?php
 

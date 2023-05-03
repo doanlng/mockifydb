@@ -20,13 +20,13 @@ table{
         <td>Artist ID</td>
         <td>Release Date</td>
         <td>Name</td>
-        <td>Delete</td>
     </tr>
 <?php
 
     while($song = mysqli_fetch_assoc($songs)){
         echo '<tr>';
         echo '<td>' . $song['TID'] . "</td>" . '<td>' . $song['LENGTH'] . "</td>" . '<td>' . $song['GENRE'] . "</td>" . '<td>' . $song['AID'] . "</td>" . '<td>' . $song['RELEASE_DATE'] . "</td><td>" .$song['Name'] . "</td>";
+        echo '<td><a href=adminAction/deleteSong.php?tid='. $song['TID'] . '>Delete</a></td>';
         echo '</tr>';
         }
 

@@ -23,12 +23,15 @@
                 $_SESSION['uid'] = $row['uid'];
                 $account_type = $row['account_type'];
                 if($account_type == 0){
+                    //listener
                     header("Location: index.php");
                 }
                 elseif($account_type == 1){
+                    //artist
                     header("Location: index.php");
                 }
                 else{
+                    //admin
                     header("Location: adminLanding.php");
                 }
             }

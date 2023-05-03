@@ -20,6 +20,7 @@ table{
         <td>About</td>
         <td>Next Tour Date</td>
         <td>Next Tour Location</td>
+
     </tr>
 <?php
 
