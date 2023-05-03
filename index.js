@@ -381,7 +381,10 @@ function loadPage(elem) {
     page = "myAlbums.php";
   } else if (elemId === "myPodcasts") {
     page = "myPodcasts.php";
-  } else if (elemId === "artistPage") {
+  } else if (elemId === "playlistView") {
+    const pid = $(elem).find("a:first").attr("id");
+    page = "playlistView.php?playlist=" + pid;
+  }  else if (elemId === "artistPage") {
     const aid = $(elem).find("a:first").attr("id");
     page = "artistPage.php?aid=" + aid;
   } else if (elemId === "listenerPage") {
@@ -389,13 +392,16 @@ function loadPage(elem) {
     page = "listenerPage.php?uid=" + uid;
   }
 
-  if (elemId === "logo" || elemId == "home") {
-    $(".arrow").hide();
-  } else {
-    $(".arrow").show();
-  }
+  $("#content-placeholder").load(page, 
+    function(data, status, xhr){ 
+      if (elemId === "logo" || elemId == "home") {
+        $(".arrow").hide();
+      } else {
+        $(".arrow").show();
+      }
+  });
 
-  $("#content-placeholder").load(page);
+  
 }
 
 // Uploading //

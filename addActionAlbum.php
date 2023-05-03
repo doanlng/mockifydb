@@ -5,7 +5,7 @@ require_once("dbConnection.php");
 if (isset($_POST['length'])) {
 	// Escape special characters in string for use in SQL statement	
 	$length = mysqli_real_escape_string($mysqli, $_POST['length']);
-	$aid = 1;
+	$aid = $_SESSION['uid'];
 		
 	// We could check for empty fields. However, none should be empty because 
 	// the input elements should have the 'required' tag

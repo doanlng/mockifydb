@@ -356,7 +356,7 @@ h1, h4, h6 {
     margin: 0 1rem;
     border-radius: 5px;
     font-size: 0.9rem;
-    align-items: center;
+    align-items: stretch;
     grid-template-columns: 1fr 2fr 1fr 1fr;
 }
 
