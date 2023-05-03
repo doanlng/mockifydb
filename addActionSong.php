@@ -2,8 +2,10 @@
 // Include the database connection file
 require_once("C:/xampp/htdocs/mockifydb/dbConnection.php");
 
-if (isset($_POST['length'])) {
+if (isset($_POST['name']) && isset($_POST['genre']) && isset($_POST['length'])) {
 	// Escape special characters in string for use in SQL statement	
+	$name = mysqli_real_escape_string($mysqli, $_POST['name']);
+	$genre = mysqli_real_escape_string($mysqli, $_POST['genre']);
 	$length = mysqli_real_escape_string($mysqli, $_POST['length']);
 	$aid = $_SESSION['uid'];
 		
@@ -11,7 +13,7 @@ if (isset($_POST['length'])) {
 	// the input elements should have the 'required' tag
 
 	// Insert data into database
-	$result = mysqli_query($mysqli, "INSERT INTO podcast (`LENGTH`, `AID`) VALUES ('$length', '$aid')");
+	$result = mysqli_query($mysqli, "INSERT INTO song (`LENGTH`, `GENRE`, `AID`, `RELEASE_DATE`, `Name`) VALUES ('$length', '$genre', '$aid', 'now()', '$name')");
 	if ($result == TRUE) {
 		echo json_encode(array('success' => 1));
 	} else {
