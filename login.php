@@ -13,7 +13,7 @@
             echo "<font color='red'> Login went wrong.</font><br/>";
         }
         else{
-            $account_found = mysqli_query($mysqli, "SELECT uid FROM accounts WHERE username='$un' and password='$pw_encrypted' LIMIT 1");
+            $account_found = mysqli_query($mysqli, "SELECT uid,account_type FROM accounts WHERE username='$un' and password='$pw_encrypted' LIMIT 1");
             session_start();
             $row = mysqli_fetch_assoc($account_found);
             if (is_null($row)) {
@@ -21,7 +21,16 @@
             }
             else {
                 $_SESSION['uid'] = $row['uid'];
-                header("Location: index.php");
+                $account_type = $row['account_type'];
+                if($account_type == 0){
+                    header("Location: index.php");
+                }
+                elseif($account_type == 1){
+                    header("Location: index.php");
+                }
+                else{
+                    header("Location: adminLanding.php");
+                }
             }
         }
 
