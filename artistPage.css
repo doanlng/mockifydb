@@ -1,24 +1,22 @@
 body {
-        /* Chrome 10-25, Safari 5.1-6 */
-    background-image: linear-gradient(rgb(0, 73, 0), rgb(0, 50, 0), rgb(0, 25, 0), black);
-
+    /* Chrome 10-25, Safari 5.1-6 */
+    background-image: linear-gradient(rgb(0, 80, 27), rgb(0, 60, 22), rgb(0, 37, 12), black);
     padding: 0;
     margin: 0;
     font-family: 'Lato', sans-serif;
     color: #000;
+    background-color: black;
 }
 
 .student-profile .card {
     background-color: black;
-    color: white;
     border-radius: 10px;
 }
 
 .student-profile .card .card-header .profile_img {
-    
-    color: white;
+    color: black;    
     width: 150px;
-    height: 150px;
+    height: 100%;
     object-fit: cover;
     margin: 10px auto;
     border: 10px solid #ccc;
@@ -51,4 +49,27 @@ table {
 td {
     border: 1px solid white;
     color: white;
+}
+.about{
+    width: 60%;
+    height: 100%;
+    background-color: black;
+    border-radius: 10px;
+}
+.row{
+    position: relative;
+    height: 250px;
+}
+.text{
+    padding-left: 30px;
+}
+.edit{
+    position: absolute;
+    bottom: 3%;
+    right: 8%;
+}
+.logout{
+    position:absolute;
+    bottom:0;
+    right:0;
 }

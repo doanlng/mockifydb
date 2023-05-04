@@ -16,6 +16,8 @@
         $album_cnt = mysqli_num_rows($albums);
         $req = mysqli_query($mysqli, "SELECT * FROM artist WHERE AID = " . $aid);
         $artist = mysqli_fetch_assoc($req);
+        $followers = mysqli_query($mysqli, "SELECT * FROM follows WHERE AID = " . $aid);
+        $n_follows = mysqli_num_rows($followers);
     }
 ?>
 <head>
@@ -35,136 +37,138 @@
     <div class="rt-container">
           <div class="col-rt-12">
               <div class="Scriptcontent">
-              
-<!-- Student Profile -->
-<div class="student-profile py-4">
-  <div class="container">
+                <!-- Student Profile -->
+                <div class="student-profile py-4">
+                  <div class="container">
 
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="card shadow-sm">
-          <div class="card-header bg-transparent text-center">
-            <?php
-                echo '<h3>'.$artist['Name'].' Artist Page</h3>';
-            ?>
-          </div>
-          <div class="card-body">
-            <?php
-                echo "<p>Monthly Listeners: " . rand(1000, 20000000) . "</p>";
-                echo "<p>Number of Songs Uploaded: ". $song_cnt ."</p>";
-                echo "<p>Number of Albums Uploaded: ". $album_cnt ."</p>";
-                echo "<p>Number of Podcasts Uploaded: ". $pod_cnt ."</p>";
-            ?>
-          </div>
-        </div>
-      </div>
-        <div class="card shadow-sm">
-          <div class="card-header bg-transparent border-0">
-            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>About</h3>
-          </div>
-          <div class="card-body pt-0">
-            <p>
-                <?php
-                    echo $artist['ABOUT'];
-                ?>
-            </p>
-        </div>
-        </div>
-  </div>
-    <div>
-      <div class="col-lg-8">
-          <div style="height: 26px"></div>
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <div class="card shadow-sm" style="width:100%">
+                          <div class="card-header bg-transparent text-center">
+                            <?php
+                                echo '<h3>'.$artist['Name'].' Artist Page</h3>';
+                            ?>
+                          </div>
+                          <div class="card-body">
+                            <?php
+                                echo "<p>Monthly Listeners: " . rand(1000, 20000000) . "</p>";
+                                echo "<p>Number of Songs Uploaded: ". $song_cnt ."</p>";
+                                echo "<p>Number of Albums Uploaded: ". $album_cnt ."</p>";
+                                echo "<p>Number of Podcasts Uploaded: ". $pod_cnt ."</p>";
+                                echo "<p>Number of Followers: ". $n_follows ."</p>";
+                            ?>
+                          </div>
+                        </div>
+                      </div>
+                        <div class="about">
+                        <div class="card shadow-sm">
+                          <div class="card-header bg-transparent border-0">
+                            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>About</h3>
+                          </div>
+                            <div class = text>
+                            <p>
+                                <?php
+                                    echo $artist['ABOUT'];
+                                ?>
+                            </p>
+                            </div>
+                        </div>
+                          <div class="edit" style=color:white>
+                            <?php
+                              echo '<button><a href="changeAbout.php?id='. $aid .'">Edit</a></button>'
+                            ?>
+                          </div>
+                        </div>
 
-      </div>
-    </div>
-    <br>
-        <div class="card body">
-          <div class="card-header bg-transparent border-0">
-            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Your Media</h3>
-          </div>
-          <div class="card-body pt-0">
-              <table>
-                <tr>
-                    <td>Track ID</td>
-                    <td>Length</td>
-                    <td>Genre</td>
-                    <td>Release Date</td>
-                    <td>Name</td>
-                </tr>
-              <?php
+                  </div>
+                    <div>
+                      <div class="col-lg-8">
+                          <div style="height: 50px"></div>
+                      </div>
+                    </div>
+                    <br>
+                        <div class="card body">
+                          <div class="card-header bg-transparent border-0">
+                            <h3 class="mb-0"><i class="far fa-clone pr-1"></i>Your Media</h3>
+                          </div>
+                          <div class="card-body pt-0">
+                              <table>
+                                <tr>
+                                    <td>Track ID</td>
+                                    <td>Length</td>
+                                    <td>Genre</td>
+                                    <td>Release Date</td>
+                                    <td>Name</td>
+                                </tr>
+                              <?php
 
-                while($song = mysqli_fetch_assoc($songs)){
-                    echo '<tr>';
-                    echo '<td>' . $song['TID'] . "</td>" . '<td>' . $song['LENGTH'] . "</td>" . '<td>' . $song['GENRE'] . "</td>" . '<td>' . $song['RELEASE_DATE'] . "</td><td>" .$song['Name'] . "</td>";
-                    echo '<td><a href=artistDeleteSong.php?tid='. $song['TID'] . '>Delete</a></td>';
-                    echo '</tr>';
-                    }
+                                while($song = mysqli_fetch_assoc($songs)){
+                                    echo '<tr>';
+                                    echo '<td>' . $song['TID'] . "</td>" . '<td>' . $song['LENGTH'] . "</td>" . '<td>' . $song['GENRE'] . "</td>" . '<td>' . $song['RELEASE_DATE'] . "</td><td>" .$song['Name'] . "</td>";
+                                    echo '<td><a href=artistDeleteSong.php?tid='. $song['TID'] . '>Delete</a></td>';
+                                    echo '</tr>';
+                                    }
 
-              ?>
-              </table>
-              <button><a href="Upload/uploadSong.html">Upload Song</a></button>
-          </div>
-          <div class="card-body pt-0">
-              <table>
-                <tr>
-                    <td>Album ID</td>
-                    <td>Length</td>
-                    <td>Name</td>
-                    <td>Number of Songs</td>
-                </tr>
-              <?php
+                              ?>
+                              </table>
+                              <button><a href="Upload/uploadSong.html">Upload Song</a></button>
+                          </div>
+                          <div class="card-body pt-0">
+                              <table>
+                                <tr>
+                                    <td>Album ID</td>
+                                    <td>Name</td>
+                                    <td>Number of Songs</td>
+                                </tr>
+                              <?php
 
-                while($album = mysqli_fetch_assoc($albums)){
-                    $songs_in_album = (mysqli_query($mysqli, "SELECT * FROM song_album WHERE Alid = " . $album['AlID']));
-                    $n_songs = mysqli_num_rows($songs_in_album);
-                    echo '<tr>';
-                    echo '<td>' . $album['AlID'] . "</td>" . '<td>' . $album['Length'] . '<td><a href=artistAddToAlbum.php?id='. $album['AlID'] .'>' . $album['Name'] . "</td>" . "<td>" . $n_songs . "</td>";
-                    echo '<td><a href=adminAction/deleteAlbum.php?tid='. $album['AlID'] . '>Delete</a></td>';
-                    echo '</tr>';
-                    }
+                                while($album = mysqli_fetch_assoc($albums)){
+                                    $songs_in_album = (mysqli_query($mysqli, "SELECT * FROM song_album WHERE Alid = " . $album['AlID']));
+                                    $n_songs = mysqli_num_rows($songs_in_album);
+                                    echo '<tr>';
+                                    echo '<td>' . $album['AlID'] . "</td>" .  '<td><a href=artistAddToAlbum.php?id='. $album['AlID'] .'>' . $album['Name'] . "</td>" . "<td>" . $n_songs . "</td>";
+                                    echo '<td><a href=adminAction/deleteAlbum.php?tid='. $album['AlID'] . '>Delete</a></td>';
+                                    echo '</tr>';
+                                    }
 
-              ?>
-              </table>
-              <button><a href="Upload/uploadAlbum.html">Upload Album</a></button>
-          </div>
-          <div class="card-body pt-0">
-              <table>
-                <tr>
-                    <td>Podcast ID</td>
-                    <td>Length</td>
-                    <td>Name</td>
-                </tr>
-              <?php
+                              ?>
+                              </table>
+                              <button><a href="Upload/uploadAlbum.html">Upload Album</a></button>
+                          </div>
+                          <div class="card-body pt-0">
+                              <table>
+                                <tr>
+                                    <td>Podcast ID</td>
+                                    <td>Length</td>
+                                    <td>Name</td>
+                                </tr>
+                              <?php
 
-                while($pod = mysqli_fetch_assoc($pods)){
-                    echo '<tr>';
-                    echo '<td>' . $pod['PID'] . "</td>" . '<td>' . $pod['length'] . "</td>" . '<td>' . $pod['NAME'] . "</a></td>";
-                    echo '<td><a href=artistDeletePodcast.php?tid='. $pod['PID'] . '>Delete</a></td>';
-                    echo '</tr>';
-                    }
+                                while($pod = mysqli_fetch_assoc($pods)){
+                                    echo '<tr>';
+                                    echo '<td>' . $pod['PID'] . "</td>" . '<td>' . $pod['length'] . "</td>" . '<td>' . $pod['NAME'] . "</a></td>";
+                                    echo '<td><a href=artistDeletePodcast.php?tid='. $pod['PID'] . '>Delete</a></td>';
+                                    echo '</tr>';
+                                    }
 
-              ?>
-              </table>
-              <button><a href="Upload/uploadPodcast.html">Upload Podcast</a></button>
-          </div>
-        </div>
-
-      <div class="content-placeholder">
-
-      </div>
-    </div>
-  </div>
+                              ?>
+                              </table>
+                              <button><a href="Upload/uploadPodcast.html">Upload Podcast</a></button>
+                          </div>
+                        </div>
+                    </div>
+                  </div>
+                <div class="logout" style="color:white">
+                    <a href="logout.php">Logout</a>
+                </div>
 </div>
 <!-- partial -->
-           
     		</div>
 		</div>
     </div>
 </section>
      
 
-
-    <!-- Analytics -->
 
 	</body>
 </html>
