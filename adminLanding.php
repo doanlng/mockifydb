@@ -44,10 +44,16 @@
                 <div class="button bold" id="adminLoadPlaylist" onclick="loadPage(this)">
                     <a>Playlists</a>
                 </div>
+                <div class="button bold">
+                     <a href="adminAction/addArtist.php"style="color:white">Add an Artist Account</a><br>
+                </div>
+                <div class="button bold">
+                    <a href="adminAction/addAdmin.php"style="color:white">Add an Admin</a><br>
+                </div>
                 <script src="adminload.js"></script>
 
                 <div class="button bold">
-                    <a href=logout.php> Logout </a>
+                    <a href=logout.php style="color:white"> Logout </a>
                 </div>
             </div>
         </div>

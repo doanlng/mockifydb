@@ -27,6 +27,7 @@ table{
     while($artist_data = mysqli_fetch_assoc($artists)){
         echo '<tr>';
         echo '<td>' . $artist_data['AID'] . "</td>" . '<td>' . $artist_data['Name'] . "</td>" . '<td>' . $artist_data['VERIFIED'] . "</td>" . '<td>' . $artist_data['ABOUT'] . "</td>" . '<td>' . $artist_data['NEXT_TOUR_DATE'] . "</td>" . '<td>' . $artist_data['NEXT_TOUR_LOCATION'] . "</td>" . "<br>";
+        echo '<td><a href=adminAction/deleteArtist.php?aid='. $artist_data['AID'] . '>Delete</a></td>';
         echo '</tr>';
     }
 

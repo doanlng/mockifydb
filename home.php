@@ -5,7 +5,7 @@
         echo 'Session is not set';
     }
     $id=$_SESSION['uid'];
-    $user = mysqli_fetch_assoc(mysqli_query($mysqli, "SELECT * FROM listener WHERE uid='$id'"));
+    $user = mysqli_fetch_assoc(mysqli_query($mysqli, "SELECT * FROM artist WHERE aid='$id'"));
     echo "<h1 >Hey! Glad You're Back!</h1> ";
 ?>
 <div class="playlists">

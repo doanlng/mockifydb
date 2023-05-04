@@ -20,15 +20,16 @@
                 echo "<font color='red'> Login went wrong.</font><br/><a href=login.html> Go Back </a>";
             }
             else {
-                $_SESSION['uid'] = $row['uid'];
                 $account_type = $row['account_type'];
                 if($account_type == 0){
+                    $_SESSION['uid'] = $row['uid'];
                     //listener
                     header("Location: index.php");
                 }
                 elseif($account_type == 1){
+                    $_SESSION['aid'] = $row['uid'];
                     //artist
-                    header("Location: index.php");
+                    header("Location: artistPage.php");
                 }
                 else{
                     //admin

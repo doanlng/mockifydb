@@ -24,6 +24,7 @@ table{
     while($playlist = mysqli_fetch_assoc($playlists)){
         echo '<tr>';
         echo '<td>' . $playlist['PLAYLIST_ID'] . "</td>" . '<td>' . $playlist['NAME'] . "</td>" . '<td>' . $playlist['OWNING_USER'] . "</td><br>";
+        echo '<td><a href=adminAction/deletePlaylist.php?plid='. $playlist['PLAYLIST_ID'] . '>Delete</a></td>';
         echo '</tr>';
     }
 

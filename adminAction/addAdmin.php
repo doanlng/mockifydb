@@ -6,7 +6,7 @@
 <body>
 	<h2>Add Data</h2>
 	<p>
-		<a href="adminLanding.php">Home</a>
+		<a href="../adminLanding.php">Home</a>
 	</p>
 
 	<form action="addAdminAction.php" method="post" name="add">

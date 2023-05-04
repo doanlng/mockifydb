@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="login.css">
+<head>
+    <title>Mockify</title>
+</head>
+<!-- SOURCE : https://codepen.io/mamislimen/pen/jOwwLvy -->
+<body>
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+
+        <div class="login">
+            <form method="POST" action="login.php">
+                <label for="chk" aria-hidden="true">Login to Mockify</label>
+                <input type="text" name="uname" placeholder="Username" for="uname" required="">
+                <input type="password" name="psw" placeholder="Password" for="psw" required="">
+                <button type="submit">Log in</button>
+                <a href=resetPassword.html style="color: white;">Forgot your password?</a><br>
+                <a href=artistLogin.html style="color: white;">Are you an Artist? Log in here.</a>
+            </form>
+        </div> 
+        <div class="signup">
+            <form method="POST" action="signup.php">
+                <label for="chk" aria-hidden="true">Signup</label>
+                <input type="email" name="email" placeholder="Email" required="">
+                <input type="text" name="uname" placeholder="Username" required="">
+                <input type="password" name="psw" placeholder="Password" required="">
+                <input type="password" name="cnfrm" placeholder="Confirm Password" required="">
+                <button>Sign up</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

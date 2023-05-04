@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="login.css">
+
+<head>
+    <title>Mockify</title>
+</head>
+<!-- SOURCE : https://codepen.io/mamislimen/pen/jOwwLvy -->
+
+<body>
+    <div class="main">
+        <input type="checkbox" id="chk" aria-hidden="true">
+
+        <div class="login">
+            <form method="POST" action="artistLogin.php">
+                <label for="chk" aria-hidden="true">Artist Login</label>
+                <input type="text" name="aid" placeholder="Artist ID" for="aid" required="">
+                <input type="password" name="psw" placeholder="Password" for="psw" required="">
+                <button type="submit">Artist Log in</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

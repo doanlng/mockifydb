@@ -34,7 +34,3 @@ body{
 
 ?>
 </table>
-<body>
-    <a href="adminAction/addArtist.php">Add an Artist Account</a><br>
-    <a href="adminAction/addAdmin.php">Add an Admin</a><br>
-</body>
