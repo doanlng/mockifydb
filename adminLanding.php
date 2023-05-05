@@ -54,12 +54,6 @@
                     <a href="statistic-album-min.php"style="color:white">Album Min</a><br>
                 </div>
                 <div class="button bold">
-                     <a href="statistic-listener-max.php"style="color:white">Listener Max</a><br>
-                </div>
-                <div class="button bold">
-                    <a href="statistic-listener-min.php"style="color:white">Listener Min</a><br>
-                </div>
-                <div class="button bold">
                      <a href="statistic-song-max.php"style="color:white">Song Max</a><br>
                 </div>
                 <div class="button bold">

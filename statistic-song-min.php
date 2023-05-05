@@ -20,14 +20,13 @@ table{
         <td>Name</td>
         <td>Length</td>
         <td>Genre</td>
-        <td>Date</td>
 
     </tr>
 <?php
 
     while($song_min_data = mysqli_fetch_assoc($song_min)){
         echo '<tr>';
-        echo '<td>' . $song_min_data['Name'] . "</td>" . '<td>' . $song_min_data['LENGTH'] . "</td>" . '<td>' . $song_min_data['GENRE'] . "</td>" . '<td>' . $song_min_data['RELEASE_DATE'] . "</td>" . "<br>";
+        echo '<td>' . $song_min_data['Name'] . "</td>" . '<td>' . $song_min_data['LENGTH'] . "</td>" . '<td>' . $song_min_data['GENRE'] . "</td>" . "<br>";
         echo '</tr>';
     }
 

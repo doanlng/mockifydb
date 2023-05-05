@@ -20,14 +20,13 @@ table{
         <td>Name</td>
         <td>Length</td>
         <td>Genre</td>
-        <td>Date</td>
 
     </tr>
 <?php
 
     while($song_max_data = mysqli_fetch_assoc($song_max)){
         echo '<tr>';
-        echo '<td>' . $song_max_data['Name'] . "</td>" . '<td>' . $song_max_data['LENGTH'] . "</td>" . '<td>' . $song_max_data['GENRE'] . "</td>" . '<td>' . $song_max_data['RELEASE_DATE'] . "</td>" . "<br>";
+        echo '<td>' . $song_max_data['Name'] . "</td>" . '<td>' . $song_max_data['LENGTH'] . "</td>" . '<td>' . $song_max_data['GENRE'] . "</td>" . '<td>' . "</td>" . "<br>";
         echo '</tr>';
     }
 
