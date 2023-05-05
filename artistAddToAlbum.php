@@ -2,6 +2,7 @@
     <head>
         <style>
             table {
+            color:white;
             font-family: Arial, sans-serif;
             border-collapse: collapse;
             width: 100%;
@@ -19,7 +20,7 @@
             }
 
             tr:hover {
-            background-color: #f5f5f5;
+            background-color: #f8f9fa28;
             }
 
             #submit_songs {
@@ -35,6 +36,9 @@
                 cursor: pointer;
                 box-shadow: 0px 2px 2px #888888;
 		    }
+            body{
+                background-color: black;
+            }
         </style>
     </head>
     <body>
@@ -52,7 +56,7 @@
             $aid = $_SESSION['aid'];
             $alid = $_GET['id'];
 
-            $songs = mysqli_query($mysqli, "SELECT * FROM song s join song_album a on a.tid=s.tid WHERE s.AID = " . $aid . " AND a.alid <> " . $alid);
+            $songs = mysqli_query($mysqli, "SELECT * FROM song s WHERE s.aid =".$aid);
             while($song = mysqli_fetch_assoc($songs)){
                 echo '<tr>';
                 echo '<td>' . $song['TID'] . "</td>" . '<td>' . $song['LENGTH'] . "</td>" . '<td>' . $song['GENRE'] . "</td>" . '<td>' . $song['RELEASE_DATE'] . "</td><td>" .$song['Name'] . "</td>";
@@ -83,8 +87,8 @@
                 };
                 data.push(obj);
             });
-            var pid = <?php echo $pid; ?>;
-            var url = "artistAddToAlbumSubmit.php?id="+pid;
+            var alid = <?php echo $alid; ?>;
+            var url = "artistAddToAlbumSubmit.php?id="+alid;
             // Send an AJAX request to the server to insert the data into the SQL table
             $.ajax({
                 url: url,
@@ -92,7 +96,7 @@
                 data: { data: JSON.stringify(data) },
                 success: function (response) {
                     console.log(response);
-                    //location.href = "artistPage.php";
+                    location.href = "artistPage.php";
 
                 },
                 error: function (jqXHR, textStatus, errorThrown) {

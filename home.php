@@ -9,58 +9,35 @@
     echo "<h1 >Hey! Glad You're Back!</h1> ";
 ?>
 <div class="playlists">
-    <a id="myAlbums" onclick="loadPage(this)" class="playlist horizontal">
-        <i class="fa-solid fa-music fa-3x"></i>
-        <div class="bold">My Albums</div>
     </a>
-    <a id="mySongs" onclick="loadPage(this)" class="playlist horizontal">
-        <i class="fa-solid fa-compact-disc fa-3x"></i>
-        <div class="bold">My Songs</div>
-    </a>
-    <a id="myPodcasts" onclick="loadPage(this)" class="playlist horizontal">
-        <i class="fa-solid fa-podcast fa-3x"></i>
-        <div class="bold">My Podcasts</div>
-    </a>
-
-    <a id="uploadAlbum" onclick="loadPage(this)" class="playlist horizontal">
+    <a id="personalLibrary" onclick="loadPage(this)" class="playlist horizontal">
         <i class="fa-solid fa-music fa-3x"></i>
         <i class="fa-solid fa-plus fa-large"></i>
-        <div class="bold">Upload Album</div>
+        <div class="bold">View your library</div>
     </a>
-    <a id="uploadSong" onclick="loadPage(this)" class="playlist horizontal">
-        <i class="fa-solid fa-compact-disc fa-3x"></i>
-        <i class="fa-solid fa-plus fa-large"></i>
-        <div class="bold">Upload Song</div>
-    </a>
-    <a id="uploadPodcast" onclick="loadPage(this)" class="playlist horizontal">
-        <i class="fa-solid fa-podcast fa-3x"></i>
-        <i class="fa-solid fa-plus fa-large"></i>
-        <div class="bold">Upload Podcast</div>
-    </a>
-
 </div>
 
 <h1>Made For You</h1>
 <div class="containerBox">
-    <a href="https://open.spotify.com/playlist/37i9dQZF1E36VNz7Jklaso" class="container buttonContainer vertical">
-        <img class="containerImg" src="Images/mix1.jpg" alt="">
-        <div class="containerTitle">Daily Mix 1</div>
-        <div class="containerArtists">Taylor Swift, Adele, Doja Cat and more</div>
+    <a id="card1" onclick="loadPage(this)" class="container buttonContainer vertical">
+        <img class="containerImg" src="Images/thisisdualipa.jpg" alt="">
+        <div class="containerTitle">Discover: Dua Lipa</div>
+        <div class="containerArtists">Essentials for Dua Lipa</div>
     </a>
-    <a href="https://open.spotify.com/playlist/37i9dQZF1E361YB82MirGc" class="container buttonContainer vertical">
-        <img class="containerImg" src="Images/mix2.jpg" alt="">
-        <div class="containerTitle">Daily Mix 2</div>
-        <div class="containerArtists">AP Dhillon, Prem Dhillon, Korala Maan and more</div>
+    <a id="card3" onclick="loadPage(this)" class="container buttonContainer vertical">
+        <img class="containerImg" src="Images/thisismichelle.jpg" alt="">
+        <div class="containerTitle">Discover: Michelle</div>
+        <div class="containerArtists">Essentials for Michelle</div>
     </a>
-    <a href="https://open.spotify.com/playlist/37i9dQZF1E35yHxtW8o0p7" class="container buttonContainer vertical">
-        <img class="containerImg" src="Images/mix3.jpg" alt="">
-        <div class="containerTitle">Daily Mix 3</div>
-        <div class="containerArtists">Pritam, Kritiman Mishra, A.R. Rahman and more</div>
+    <a id="card2" onclick="loadPage(this)"  class="container buttonContainer vertical">
+        <img class="containerImg" src="Images/thisisdenzelcurry.jpg" alt="">
+        <div class="containerTitle">Discover: Denzel Curry</div>
+        <div class="containerArtists">Essentials for Denzel Curry</div>
     </a>
-    <a href="https://open.spotify.com/playlist/37i9dQZF1E35i8bGL86Ilh" class="last container buttonContainer vertical">
-        <img class="containerImg" src="Images/mix4.jpg" alt="">
-        <div class="containerTitle">Daily Mix 4</div>
-        <div class="containerArtists">Badshah, The PropheC, Vishal Mishra and more</div>
+    <a id="card4" onclick="loadPage(this)"  class="last container buttonContainer vertical">
+        <img class="containerImg" src="Images/thisispushat.jpg" alt="">
+        <div class="containerTitle">Discover: Pusha T</div>
+        <div class="containerArtists">Essentials for Pusha T</div>
     </a>
 </div>
 

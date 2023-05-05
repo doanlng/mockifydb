@@ -1,0 +1,36 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Function to handle the "Submit" button click event
+        $("#submit_songs").click(function () {
+            // Get the checked checkboxes
+            var checkboxes = $("#song_table input[type='checkbox']:checked");
+
+            // Build an array of objects containing the data associated with each checked checkbox
+            var data = [];
+            checkboxes.each(function () {
+                var row = $(this).closest("tr");
+                var obj = {
+                    "tid": row.find("td:eq(1)").text(),
+                    "primary_key": $(this).val(),
+                };
+                data.push(obj);
+            });
+
+            // Send an AJAX request to the server to insert the data into the SQL table
+            $.ajax({
+                url: "artistAddToAlbumSubmit.php",
+                method: "POST",
+                data: { data: JSON.stringify(data) },
+                success: function (response) {
+                    console.log(response);
+                    location.href = "artistPage.php";
+
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert('There was some error performing the AJAX call!');
+                },
+            });
+        });
+    });
+</script>

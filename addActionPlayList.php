@@ -3,6 +3,7 @@
 require_once("dbConnection.php");
 
 if (isset($_POST['NAME'])) {
+	session_start();
 	// Escape special characters in string for use in SQL statement	
 	$name = mysqli_real_escape_string($mysqli, $_POST['NAME']);
 	$owning_user = $_SESSION['uid'];

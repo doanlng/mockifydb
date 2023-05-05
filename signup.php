@@ -12,9 +12,13 @@
 
             //echo "post is set";
             if($pw == $cnfm && empty(mysqli_fetch_assoc($dup))){
+                $user_insert = mysqli_query($mysqli, "INSERT INTO listener (`Name`) VALUES ('$uname')");
+                $added_user = mysqli_query($mysqli, "SELECT uid FROM listener where uid=LAST_INSERT_ID()");
+        		$uid = mysqli_fetch_assoc($added_user)['uid'];
+
                 $pw_encrypt = encrypt($pw);
-                $result = mysqli_query($mysqli, "INSERT INTO accounts (`username`, `email`, `password`) VALUES ('$uname', '$email', '$pw_encrypt')");
-            
+                $result = mysqli_query($mysqli, "INSERT INTO accounts (`uid`, `username`, `email`, `password`, `account_type`) VALUES ('$uid', '$uname', '$email', '$pw_encrypt', 0)");
+
                 if(empty($uname) || empty($pw)){
                     echo "<font color='red'> Something went wrong.  Press arrow to go back </font><br/>";
                 }

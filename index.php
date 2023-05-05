@@ -58,7 +58,7 @@
                     $user_playlists = mysqli_query($mysqli, "SELECT * FROM playlist WHERE OWNING_USER = '$id' ");
                     while($row = mysqli_fetch_assoc($user_playlists)){
                         // echo '<a class="playlistName" href=playlistView.php?playlist='.$row['PLAYLIST_ID'].'> ' . $row['NAME'] . '</a>';
-                        echo '<span id="playlistView" onclick="loadPage(this)" class="mediaName"><a id='.$row['PLAYLIST_ID'].'>'.$row['NAME'].'</a> </span>';
+                        echo '<span id="playlistView" onclick="loadPage(this)" class="mediaName"><a id='.$row['PLAYLIST_ID'].'>'.$row['NAME'].'</a> </span><br>';
                         // echo '<span id="artistPage" onclick="loadPage(this)" class="mediaName">'.$s['Name']."<a id=".$s['AID'].'>'.$artist['Name'].'</a></span>'; 
                     }
                 ?>

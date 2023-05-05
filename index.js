@@ -381,27 +381,37 @@ function loadPage(elem) {
     page = "myAlbums.php";
   } else if (elemId === "myPodcasts") {
     page = "myPodcasts.php";
+  } else if (elemId === "personalLibrary") {
+    page = "personalLibrary.php";
   } else if (elemId === "playlistView") {
     const pid = $(elem).find("a:first").attr("id");
     page = "playlistView.php?playlist=" + pid;
-  }  else if (elemId === "artistPage") {
+  } else if (elemId === "artistPage") {
     const aid = $(elem).find("a:first").attr("id");
     page = "artistPage.php?aid=" + aid;
   } else if (elemId === "listenerPage") {
     const uid = $(elem).find("a:first").attr("id");
     page = "listenerPage.php?uid=" + uid;
+  } else if (elemId === "card1") {
+    page = "discoverPage.php?playlist=14";
+  } else if (elemId === "card2") {
+    const uid = $(elem).find("a:first").attr("id");
+    page = "discoverPage.php?playlist=15";
+  } else if (elemId === "card3") {
+    const uid = $(elem).find("a:first").attr("id");
+    page = "discoverPage.php?playlist=16";
+  } else if (elemId === "card4") {
+    const uid = $(elem).find("a:first").attr("id");
+    page = "discoverPage.php?playlist=17";
   }
 
-  $("#content-placeholder").load(page, 
-    function(data, status, xhr){ 
-      if (elemId === "logo" || elemId == "home") {
-        $(".arrow").hide();
-      } else {
-        $(".arrow").show();
-      }
+  $("#content-placeholder").load(page, function (data, status, xhr) {
+    if (elemId === "logo" || elemId == "home") {
+      $(".arrow").hide();
+    } else {
+      $(".arrow").show();
+    }
   });
-
-  
 }
 
 // Uploading //

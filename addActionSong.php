@@ -16,7 +16,7 @@ if (isset($_POST['name']) && isset($_POST['genre']) && isset($_POST['length'])) 
 	// the input elements should have the 'required' tag
 
 	// Insert data into database
-	$result = mysqli_query($mysqli, "INSERT INTO song (`LENGTH`, `GENRE`, `AID`, `RELEASE_DATE`, `Name`) VALUES ('$time', '$genre', '$aid', 'now()', '$name')");
+	$result = mysqli_query($mysqli, "INSERT INTO song (`LENGTH`, `GENRE`, `AID`, `RELEASE_DATE`, `Name`) VALUES ('$time', '$genre', '$aid', 'CURRENT_TIMESTAMP', '$name')");
 	if ($result == TRUE) {
 		echo json_encode(array('success' => 1));
 	} else {

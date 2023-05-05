@@ -3,6 +3,7 @@
 <script type="text/javascript">
     $(document).ready(function() {
         $('#addAlbumForm').submit(function(e) {
+            alert()
             e.preventDefault();
             $.ajax({
                 type: "POST",
@@ -11,7 +12,7 @@
                 success: function(response)
                 {
                     console.log(response);
-                    //location.href = "../artistPage.php";
+                    location.href = "../artistPage.php";
                 },
                 error: function() {
                     alert('There was some error performing the AJAX call!');
