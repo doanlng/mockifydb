@@ -45,6 +45,30 @@
                     <a>Playlists</a>
                 </div>
                 <div class="button bold">
+                    <a href="adminAction/addAdmin.php"style="color:white">Add an Admin</a><br>
+                </div>
+                <div class="button bold">
+                     <a href="statistic-album-max.php"style="color:white">Album Max</a><br>
+                </div>
+                <div class="button bold">
+                    <a href="statistic-album-min.php"style="color:white">Album Min</a><br>
+                </div>
+                <div class="button bold">
+                     <a href="statistic-listener-max.php"style="color:white">Listener Max</a><br>
+                </div>
+                <div class="button bold">
+                    <a href="statistic-listener-min.php"style="color:white">Listener Min</a><br>
+                </div>
+                <div class="button bold">
+                     <a href="statistic-song-max.php"style="color:white">Song Max</a><br>
+                </div>
+                <div class="button bold">
+                    <a href="statistic-song-min.php"style="color:white">Song Min</a><br>
+                </div>
+                <div class="button bold">
+                    <a href="statistic-genre-count.php"style="color:white">Genre Count</a><br>
+                </div>
+                <div class="button bold">
                      <a href="adminAction/addArtist.php"style="color:white">Add an Artist Account</a><br>
                 </div>
                 <div class="button bold">
