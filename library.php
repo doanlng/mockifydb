@@ -22,11 +22,13 @@
     <?php 
         $user_playlists = mysqli_query($mysqli, "SELECT * FROM playlist WHERE OWNING_USER = '$id' ");
         while($row = mysqli_fetch_assoc($user_playlists)){
-            echo '<a class="container buttonContainer vertical" href=playlistView.php?pid='.$row['PLAYLIST_ID'].'>
+            echo '<span id="playlistView" onclick="loadPage(this)">
+                  <a class="container buttonContainer vertical" id='.$row['PLAYLIST_ID'].'>
                     <img class="containerImg" src="Images/noSong.jpg" alt="">
                     <div class="containerTitle">'.$row['NAME'].'</div>
                     <div class="containerArtists">'.$user_data['Name'].'</div>
-                  </a>';
+                  </a>
+                  </span>';
         }
     ?>
 
