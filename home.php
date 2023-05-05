@@ -17,6 +17,9 @@
     </a>
 </div>
 
+
+
+
 <h1>Made For You</h1>
 <div class="containerBox">
     <a id="card1" onclick="loadPage(this)" class="container buttonContainer vertical">
@@ -41,6 +44,107 @@
     </a>
 </div>
 
+<?php
+    require_once("dbConnection.php");
+    $podcasts = mysqli_query($mysqli, "SELECT * FROM podcast ORDER BY PID DESC LIMIT 4");
+
+    $podcast1 = mysqli_fetch_assoc($podcasts);
+    $pid1 = $podcast1['PID'];
+    $artist1 = $podcast1['AID'];
+    $a1 = mysqli_query($mysqli, "SELECT Name FROM artist WHERE AID=$artist1");
+    $a1_name = mysqli_fetch_assoc($a1)['Name'];
+
+    $podcast2 = mysqli_fetch_assoc($podcasts);
+    $pid2 = $podcast2['PID'];
+    $artist2 = $podcast2['AID'];
+    $a2 = mysqli_query($mysqli, "SELECT Name FROM artist WHERE AID=$artist2");
+    $a2_name = mysqli_fetch_assoc($a2)['Name'];
+
+    $podcast3 = mysqli_fetch_assoc($podcasts);
+    $pid3 = $podcast3['PID'];
+    $artist3 = $podcast3['AID'];
+    $a3 = mysqli_query($mysqli, "SELECT Name FROM artist WHERE AID=$artist3");
+    $a3_name = mysqli_fetch_assoc($a3)['Name'];
+
+    $podcast4 = mysqli_fetch_assoc($podcasts);
+    $pid4 = $podcast4['PID'];
+    $artist4 = $podcast4['AID'];
+    $a4 = mysqli_query($mysqli, "SELECT Name FROM artist WHERE AID=$artist4");
+    $a4_name = mysqli_fetch_assoc($a4)['Name'];
+
+?>
+<h1>Discover New Podcasts</h1>
+<div class="containerBox">
+    <a id="card1"  class="container buttonContainer vertical" href="likePodcast.php?id=<?php echo $pid1; ?>">
+        <img class="containerImg" src="Images/podcast1" alt="">
+        <div class="containerTitle"><?php echo $podcast1['NAME'] ?></div>
+        <div class="containerArtists"><?php echo $a1_name?></div>
+    </a>
+    <a id="card1"  class="container buttonContainer vertical" href="likePodcast.php?id=<?php echo $pid2; ?>">
+        <img class="containerImg" src="Images/podcast2" alt="">
+        <div class="containerTitle"><?php echo $podcast2['NAME'] ?></div>
+        <div class="containerArtists"><?php echo $a2_name ?></div>
+    </a>
+    <a id="card1"  class="container buttonContainer vertical" href="likePodcast.php?id=<?php echo $pid3; ?>">
+        <img class="containerImg" src="Images/podcast3" alt="">
+        <div class="containerTitle"><?php echo $podcast3['NAME'] ?></div>
+        <div class="containerArtists"><?php echo $a3_name ?></div>
+    </a>
+    <a id="card1"  class="container buttonContainer vertical" href="likePodcast.php?id=<?php echo $pid4; ?>">
+        <img class="containerImg" src="Images/podcast4" alt="">
+        <div class="containerTitle"><?php echo $podcast4['NAME'] ?></div>
+        <div class="containerArtists"><?php echo $a4_name ?></div>
+    </a>
+</div>
+
+<?php
+    $albums = mysqli_query($mysqli, "SELECT * FROM album ORDER BY ALID DESC LIMIT 4");
+
+    $album1 = mysqli_fetch_assoc($albums);
+    $artist1 = $album1['AID'];
+    $a1 = mysqli_query($mysqli, "SELECT Name FROM artist WHERE AID=$artist1");
+    $a1_name = mysqli_fetch_assoc($a1)['Name'];
+    $alid1 = $album1['AlID'];
+
+    $album2 = mysqli_fetch_assoc($albums);
+    $artist2 = $album2['AID'];
+    $a2 = mysqli_query($mysqli, "SELECT Name FROM artist WHERE AID=$artist2");
+    $a2_name = mysqli_fetch_assoc($a2)['Name'];
+    $alid2 = $album2['AlID'];
+
+    $album3 = mysqli_fetch_assoc($albums);
+    $artist3 = $album3['AID'];
+    $a3 = mysqli_query($mysqli, "SELECT Name FROM artist WHERE AID=$artist3");
+    $a3_name = mysqli_fetch_assoc($a3)['Name'];
+    $alid3 = $album3['AlID'];
+
+    $album4 = mysqli_fetch_assoc($albums);
+    $artist4 = $album4['AID'];
+    $a4 = mysqli_query($mysqli, "SELECT Name FROM artist WHERE AID=$artist4");
+    $a4_name = mysqli_fetch_assoc($a4)['Name'];
+    $alid4 = $album4['AlID'];
+
+?>
+<h1>Discover New Albums</h1>
+<div class="containerBox">
+    <a id="card1"  class="container buttonContainer vertical" href="likeAlbum.php?id=<?php echo $alid1; ?>">
+        <div class="containerTitle"><?php echo $album1['Name'] ?></div>
+        <div class="containerArtists"><?php echo $a1_name?><br></div>
+    </a>
+    <a id="card1"  class="container buttonContainer vertical" href="likeAlbum.php?id=<?php echo $alid2; ?>">
+        <div class="containerTitle"><?php echo $album2['Name'] ?></div>
+        <div class="containerArtists"><?php echo $a2_name?></div>
+    </a>
+    <a id="card1"  class="container buttonContainer vertical" href="likeAlbum.php?id=<?php echo $alid3; ?>">
+        <div class="containerTitle"><?php echo $album3['Name'] ?></div>
+        <div class="containerArtists"><?php echo $a3_name?></div>
+    </a>
+    <a id="card1"  class="container buttonContainer vertical" href="likeAlbum.php?id=<?php echo $alid4; ?>">
+        <div class="containerTitle"><?php echo $album4['Name'] ?></div>
+        <div class="containerArtists"><?php echo $a4_name?></div>
+    </a>
+</div>
+<!--
 <div id="content-placeholder" class="content-placeholder">
     <div id="friendslist" class="list">
         <div class="container">
@@ -78,3 +182,4 @@
         });
     </script>
 </div>
+-->
